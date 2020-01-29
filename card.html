@@ -1,0 +1,43 @@
+    <form>
+    <input type="text" id="card" placeholder="enter card number" onkeyup="myCard()" maxlength="16">
+     </form>
+     <p id="demo"></p>
+     <script>
+	   function myCard(){
+        var card=document.getElementById("card").value;
+    
+        if(isNaN(card)){
+            alert('Enter only the numeric value');  
+        }
+              else if( card.length==16){
+				  if(card.charAt(0)==4  ){
+              
+                  document.getElementById("card").style.color="blue";
+                  
+              document.getElementById("demo").innerHTML= "<img src='image/visa.png' alt='visa'>";}
+                      
+              else if(card.charAt(0)==5 && (card.charAt(1)>=1 && 
+			  card.charAt(1)<=5 )){
+              
+              document.getElementById("demo").innerHTML= "<img src='image/Mastercard.jpg' alt='master card'>";
+              
+              }
+              else if(  (card.charAt(0)==5 || card.charAt(0)==6) &&
+			   (card.charAt(1)==0 || card.charAt(1)==3 || card.charAt(1)==7) ) {
+              
+              document.getElementById("demo").innerHTML= "<img src='image/maestro.png' alt='maestro card'>";
+              
+              }
+              else if(  card.charAt(0)==3 && (card.charAt(1)==4 || card.charAt(1)==7)){ document.getElementById("demo").innerHTML= "<img src='image/american_express.png' alt='american express'>";
+              }
+              else {
+              
+               document.getElementById("demo").innerHTML="*invalid number";
+                  document.getElementById("demo").style.color="red";
+                  document.getElementById("card").value="";
+              }
+              
+               }
+    }
+    </script>
+  
